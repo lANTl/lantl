@@ -1,0 +1,110 @@
+.app
+{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+
+.save-gladiator
+{
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.attack
+{
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.stamina-recover
+{
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10px;
+}
+
+.counterattack
+{
+    height: 48px;
+    width: 48px;
+    margin-bottom: 2%;
+    margin-left: 5px;
+}
+
+.block
+{
+    height: 48px;
+    width: 48px;
+    margin-bottom: 5%;
+    margin-left: 5px; 
+}
+
+select {
+    background-color: #19c8d1;
+}
+
+.glad-health
+{
+    height: 30px;
+    width: 35%;
+    background-color: #d33935;
+    color: white;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.glad-armor
+{
+    height: 30px;
+    width: 35%;
+    background-color: #3c73f2;
+    color: white; 
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.glad-stamina
+{
+    height: 30px;
+    width: 35%;
+    background-color: #ffc734;
+    color: white; 
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.shield-hp{
+    height: 30px;
+    width: 35%;
+    background-color: #1d944e;
+    color: white;  
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.select-attack
+{
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.skill
+{
+    margin-left: 10px;
+    margin-top: 0.5%;
+}
+
+.ready-skill
+{
+    color: goldenrod;
+}
