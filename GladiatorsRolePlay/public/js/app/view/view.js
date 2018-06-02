@@ -1,6 +1,7 @@
 function gameView(){
     var armor = null;
     var kg = null;
+    var defaultKg = null;
     var shieldHealth = null;
     var choseWeapon = new Object();
     $("#light-w").hide();
@@ -50,6 +51,8 @@ function gameView(){
         
         armor = helmet + chestplate + arms + pants + boots;
         kg = helmet + chestplate + arms + pants + boots + shield;
+        defaultKg = helmet + chestplate + arms + pants + boots + shield;
+
         $('.glad-armor').val('ARMOR: '+ armor);
         if(selectedShield){
             shieldHealth = shield * 2;
@@ -132,8 +135,9 @@ function gameView(){
                 console.log(choseWeapon.damage);
                
                 var selectedFirstSkill = $('input[name=first-skill]:checked').val();
-                var selectedSecondSkill = $('input[name=first-skill]:checked').val();
-                var selectedThirdSkill = $('input[name=first-skill]:checked').val();
+                var selectedSecondSkill = $('input[name=second-skill]:checked').val();
+                var selectedThirdSkill = $('input[name=third-skill]:checked').val();
+                
         
                 switch(selectedFirstSkill){
                     case '1':
@@ -142,12 +146,21 @@ function gameView(){
         
                     case '2':
                         $('#skill-bar').prepend("</br><div class=\"passive-skill\">Дохака 'Passive'(Покрывает дымом, делает невозможным разглядеть твое снаряжение)</div><input type=\"radio\" id=\"used-skill\"/>");
-                        $('#skill-bar').prepend("</br><div class=\"passive-skill\">Дохака 'Passive'(Покрывает дымом, делает невозможным разглядеть твое снаряжение)</div><input type=\"radio\" id=\"used-skill\"/>");
                         break;
         
                     case '3':
                         $('#skill-bar').prepend("</br><div class=\"ready-skill\">Волчья трава 'Active'(Восстанавливает стамину)</div><input type=\"radio\" id=\"used-skill\"/>");
                         break;
+                    case '4':
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Толстокожий \"Passive\"(Уменьшает получаемый урон на 4 единицы)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        break;
+                    case '5':
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Везунчик \"Passive\"(работает один раз, до первого полученного крита.  Аннулирует урон от крита.)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        break;
+                    case '6':
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Последний удар \"Passive\"(После смерти, можно нанести еще один удар)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        break;             
+                        
                 }
 
                 switch(selectedSecondSkill){
@@ -162,6 +175,12 @@ function gameView(){
                     case '3':
                         $('#skill-bar').prepend("</br><div class=\"ready-skill\">Бэк-слеб 'Active'(Умножает урон x2, но если вы не попали - то урон наносится вам, в размере 1x)</div><input type=\"radio\" id=\"used-skill\"/>");
                         break;
+                    case '4':
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Коварный удар \"Active\"(стандартный урон оружия  + забирает стамину (стоимость одной атак) у цели)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        break;
+                    case '5':
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Вампир \"Active\"(Ворует 15хп у врага)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        break;        
                 }
 
                 switch(selectedThirdSkill){
@@ -174,8 +193,11 @@ function gameView(){
                         break;
         
                     case '3':
-                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Вампир 'Active'(Наносит врагу 5хп урона и вызывает кровотечение 1ур.)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Устрашение  \"Active\"(Наложенное на противника, запрещает ему выбрать вас как цель на протяжении одного хода)</div><input type=\"radio\" id=\"used-skill\"/>");
                         break;
+                    case '4':
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Ловкач \"Active\"(Позволяет походить два раза подряд)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        break;    
                 }
 
 
@@ -183,6 +205,34 @@ function gameView(){
 
                 $('#glad-stats').hide();
         } 
+    });
+
+
+    $('#shield-hp').on('change', function(){
+        var shieldBar = parseInt($('#shield-hp').val());
+            switch(shieldBar){
+                case 0:
+                kg -= 20;
+                $('#shield-hp').attr('readonly', true);
+                break;
+            }
+    });
+
+
+    $('#broken').on('change', function(){
+        var broken = $('#broken:checked');
+        if(broken){
+            kg += 10;
+        }
+    });
+
+    $('#broken-off').on('change', function(){
+        var brokenOff = $('#broken-off:checked');
+        if(brokenOff){
+            if(kg > defaultKg){
+                kg -= 10;
+            }
+        }
     });
 
 
@@ -194,7 +244,7 @@ function gameView(){
 
         var cube = randomInt(0, 100);
     
-      
+        
         
         var staminaNow = parseInt($('#glad-stamina').val());
         if(staminaNow < choseWeapon.weight && staminaNow < 100){
@@ -205,7 +255,8 @@ function gameView(){
             
 
 
-            var chosedPartForAttack = $('input[name=select-attack]:checked').val();
+        var chosedPartForAttack = $('input[name=select-attack]:checked').val();
+            
         switch(chosedPartForAttack){
             case 'head':
             if(cube > kg && cube > choseWeapon.crit){
