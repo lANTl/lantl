@@ -2,162 +2,171 @@
 
 <html>
 
-    <head>
-        <meta charset="UTF-8"/>
-        <link href="css/design.css" rel="stylesheet"/>
-    </head>
+<head>
+    <meta charset="UTF-8"/>
+    <link href="css/design.css" rel="stylesheet"/>
+</head>
 
 
-    <body>
-        <div id="app" class="app">
+<body>
+   
 
-            <div class="glad-stats" id="glad-stats">
-                <h1>Выберите броню</h1></br>
-                <p class="text">Шлем: </p><select class="helmet" id="helmet">
-                    <option></option>
-                    <option value="5">Легкий шлем(5 брони, 5кг)</option>
-                    <option value="10">Средний шлем(10 брони, 10кг)</option>
-                    <option value="15">Тяжелый шлем(15 брони, 15кг)</option>
-                </select>
+    <div id="app" class="app">
 
-                <p class="text">Нагрудник: </p><select class="chestplate" id="chestplate">
-                        <option></option>
-                        <option value="5">Легкий нагрудник(5 брони, 5кг)</option>
-                        <option value="10">Средний нагрудник(10 брони, 10кг)</option>
-                        <option value="15">Тяжелый нагрудник(15 брони, 15кг)</option>
-                    </select>
+        <div class="glad-stats" id="glad-stats">
+            <h1>Выберите броню</h1></br>
+            <p class="text">Шлем: </p><select class="helmet" id="helmet">
+                <option></option>
+                <option value="5" data-armor="6">Легкий шлем(6 брони, 5кг)</option>
+                <option value="10" data-armor="13">Средний шлем(13 брони, 10кг)</option>
+                <option value="14" data-armor="20">Тяжелый шлем(20 брони, 14кг)</option>
+            </select>
 
-                <p class="text">Наручи: </p><select class="arms" id="arms">
-                        <option></option>
-                        <option value="5">Легкие наручи(5 брони, 5кг)</option>
-                        <option value="10">Средние наручи(10 брони, 10кг)</option>
-                        <option value="15">Тяжелые наручи(15 брони, 15кг)</option>
-                    </select> 
+            <p class="text">Нагрудник: </p><select class="chestplate" id="chestplate">
+                <option></option>
+                <option value="5" data-armor="6">Легкий нагрудник(6 брони, 5кг)</option>
+                <option value="10" data-armor="13">Средний нагрудник(13 брони, 10кг)</option>
+                <option value="14" data-armor="20">Тяжелый нагрудник(20 брони, 14кг)</option>
+            </select>
 
-                <p class="text">Поножи: </p><select class="pants" id="pants">
-                        <option></option>
-                        <option value="5">Легкие поножи(5 брони, 5кг)</option>
-                        <option value="10">Средние поножи(10 брони, 10кг)</option>
-                        <option value="15">Тяжелые поножи(15 брони, 15кг)</option>
-                    </select>
-                    
-                <p class="text">Ботинки: </p><select class="boots" id="boots">
-                        <option></option>
-                        <option value="5">Легкие ботинки(5 брони, 5кг)</option>
-                        <option value="10">Средние ботинки(10 брони, 10кг)</option>
-                        <option value="15">Тяжелые ботинки(15 брони, 15кг)</option>
-                    </select>
-                    
-                <p class="text">Щит: </p><select class="shield" id="shield">
-                        <option value="0"></option>
-                        <option value="35">Щит (40 брони, 35кг)</option>
-                    </select></br>     
+            <p class="text">Наручи: </p><select class="arms" id="arms">
+                <option></option>
+                <option value="5" data-armor="6">Легкие наручи(6 брони, 5кг)</option>
+                <option value="10" data-armor="13">Средние наручи(13 брони, 10кг)</option>
+                <option value="14" data-armor="20">Тяжелые наручи(20 брони, 14кг)</option>
+            </select> 
+
+            <p class="text">Поножи: </p><select class="pants" id="pants">
+                <option></option>
+                <option value="5" data-armor="6">Легкие поножи(6 брони, 5кг)</option>
+                <option value="10" data-armor="13">Средние поножи(13 брони, 10кг)</option>
+                <option value="14" data-armor="20">Тяжелые поножи(20 брони, 14кг)</option>
+            </select>
+
+            <p class="text">Ботинки: </p><select class="boots" id="boots">
+                <option></option>
+                <option value="5" data-armor="6">Легкие ботинки(6 брони, 5кг)</option>
+                <option value="10" data-armor="13">Средние ботинки(13 брони, 10кг)</option>
+                <option value="14" data-armor="20">Тяжелые ботинки(20 брони, 14кг)</option>
+            </select>
+
+            <p class="text">Щит: </p><select class="shield" id="shield">
+                <option value="0"></option>
+                <option value="35">Щит (40 брони, 35кг)</option>
+            </select></br>     
 
 
-                <h1>Выберите Оружие</h1>
-                <input type="radio" value="light-weapon" name="weapon">Легкое оружие</input>
-                <input type="radio" value="mid-weapon" name="weapon">Среднее оружие</input>
-                <input type="radio" value="heavy-weapon" name="weapon">Тяжелое оружие</input></br>
-                 
-                <div id="light-w">  
+            <h1>Выберите Оружие</h1>
+            <input type="radio" value="light-weapon" name="weapon" id="wl"><label for="wl">Легкое оружие</label></input><br></br>
+            <input type="radio" value="mid-weapon" name="weapon" id="wm"><label for="wm">Среднее оружие</label></input><br></br>
+            <input type="radio" value="heavy-weapon" name="weapon" id="wh"><label for="wh">Тяжелое оружие</label></input></br></br>
+
+            <div id="light-w">  
                 <p class="text">Легкое оружие: </p><select class="light-weapon" id="light-weapon">
-                        <option></option>
-                        <option value="10">Клинок(10 ур., 20% крита, стамина -10)</option>
-                        <option value="10">Даггер(13 ур., 16% крита, стамина -12)</option>
-                        <option value="15">Томагавк(15 ур., 14% крита, стамина -14)</option>
-                        <option value="15">Стилет(17 ур., 12% крита, стамина -16)</option>
-                        <option value="15">Нунчаки(19 ур., 10% крита, стамина -18)</option>
-                    </select>
-                </div> 
+                    <option></option>
+                    <option value="10">Клинок(12 ур., 20% крита, стамина -10)</option>
+                    <option value="10">Даггер(15 ур., 16% крита, стамина -12)</option>
+                    <option value="15">Томагавк(17 ур., 14% крита, стамина -14)</option>
+                    <option value="15">Стилет(19 ур., 12% крита, стамина -16)</option>
+                    <option value="15">Нунчаки(21 ур., 10% крита, стамина -18)</option>
+                </select>
+            </div> 
 
-                <div id="mid-w">   
+            <div id="mid-w">   
                 <p class="text">Среднее оружие: </p><select class="light-weapon" id="mid-weapon">
-                        <option></option>
-                        <option value="10">Одноручный меч(30 ур., 35% крита, стамина -19)</option>
-                        <option value="10">Булава(33 ур., 31% крита, стамина -21)</option>
-                        <option value="15">Копье(35 ур., 29% крита, стамина -22)</option>
-                        <option value="15">Небольшая катана(37 ур., 27% крита, стамина -24)</option>
-                        <option value="15">Топор(40 ур., 25% крита, стамина -26)</option>
-                    </select>
-                </div> 
+                    <option></option>
+                    <option value="10">Одноручный меч(30 ур., 35% крита, стамина -19)</option>
+                    <option value="10">Булава(33 ур., 31% крита, стамина -21)</option>
+                    <option value="15">Копье(35 ур., 29% крита, стамина -22)</option>
+                    <option value="15">Небольшая катана(37 ур., 27% крита, стамина -24)</option>
+                    <option value="15">Топор(40 ур., 25% крита, стамина -26)</option>
+                </select>
+            </div> 
 
-                <div id="heavy-w">   
+            <div id="heavy-w">   
                 <p class="text">Тяжелое оружие: </p><select class="light-weapon" id="heavy-weapon">
-                        <option></option>
-                        <option value="10">Рапира(50 ур., 10% крита, стамина -28)</option>
-                        <option value="10">Большая катана(54 ур., 8% крита, стамина -30)</option>
-                        <option value="15">Дубина(57 ур., 6% крита, стамина -32)</option>
-                        <option value="15">Двуручный меч(60 ур., 4% крита, стамина -33)</option>
-                        <option value="15">Боевой молот(63 ур., 2% крита, стамина -35)</option>
-                    </select>    
-                </div> 
+                    <option></option>
+                    <option value="10">Рапира(50 ур., 10% крита, стамина -28)</option>
+                    <option value="10">Большая катана(54 ур., 8% крита, стамина -30)</option>
+                    <option value="15">Дубина(57 ур., 6% крита, стамина -32)</option>
+                    <option value="15">Двуручный меч(60 ур., 4% крита, стамина -33)</option>
+                    <option value="15">Боевой молот(63 ур., 2% крита, стамина -35)</option>
+                </select>    
+            </div> 
 
-                <h1>Выберите способности</h1>
-                <div>1.</div><input id="first-skill" class="skill" type="radio" name="first-skill" value="1">Целебные травы "Active"(Позволяют остановить кровотечение и восстановить 25хп)</input></br>
-                  <input id="first-skill" class="skill" type="radio"  name="first-skill" value="2">Дохака "Passive"(Покрывает дымом, делает невозможным разглядеть твое снаряжение)</input></br>
-                  <input id="first-skill" class="skill" type="radio" name="first-skill" value="3">Волчья трава "Active"(Восстанавливает стамину)</input></br>
-                  <input id="first-skill" class="skill" type="radio" name="first-skill" value="4">Толстокожий "Passive"(Уменьшает получаемый урон на 4 единицы)</input></br>
-                  <input id="first-skill" class="skill" type="radio" name="first-skill" value="5">Везунчик "Passive"(работает один раз, до первого полученного крита.  Аннулирует урон от крита.)</input></br>
-                  <input id="first-skill" class="skill" type="radio" name="first-skill" value="6">Последний удар "Passive"(После "смерти", можно нанести еще один удар)</input></br></br>
+            <h1>Выберите способности</h1>
+            <div class="skills">
+
+                <div class="number-of-block-with-skills">1.</div>
+                <div class="container-for-skills"><input id="remedies" class="skill" type="radio" name="first-skill" value="1"><label for="remedies">Целебные травы "Active"(Позволяют остановить кровотечение и восстановить 30хп)</input></div>
+                <div class="container-for-skills"><input id="dohaka" class="skill" type="radio"  name="first-skill" value="2"><label for="dohaka">Дохака "Passive"(Покрывает дымом, делает невозможным разглядеть твое снаряжение)</label></input></div>
+                <div class="container-for-skills"><input id="revo" class="skill" type="radio" name="first-skill" value="3"><label for="revo">Волчья трава "Active"(Восстанавливает стамину)</label></input></div>
+                <div class="container-for-skills"><input id="thick-skined" class="skill" type="radio" name="first-skill" value="4"><label for="thick-skined">Толстокожий "Passive"(Уменьшает получаемый урон на 4 единицы)</label></input></div>
+                <div class="container-for-skills"><input id="luckier" class="skill" type="radio" name="first-skill" value="5"><label for="luckier">Везунчик "Passive"(работает один раз, до первого полученного крита.  Аннулирует урон от крита.)</label></input></div>
+                <div class="container-for-skills"><input id="last_punch" class="skill" type="radio" name="first-skill" value="6"><label for="last_punch">Последний удар "Passive"(После "смерти", можно нанести еще один удар)</label></input>
                 
-                <div>2.</div><input id="second-skill" class="skill" type="radio" name="second-skill" value="1">Захват "Active"(Станит врага)</input></br>
-                  <input id="second-skill" class="skill" type="radio" name="second-skill" value="2">Рубящий удар "Active"(Наносит 25 урона)</input></br>
-                  <input id="second-skill" class="skill" type="radio" name="second-skill" value="3">Бэк-слеб "Active"(Умножает урон x2, но если вы не попали - то урон наносится вам, в размере 1x)</input></br>
-                  <input id="second-skill" class="skill" type="radio" name="second-skill" value="4">Коварный удар "Active"(стандартный урон оружия  + забирает стамину (стоимость одной атак) у цели)</input></br>
-                  <input id="second-skill" class="skill" type="radio" name="second-skill" value="5">Вампир "Active"(Ворует 15хп у врага)</input></br></br>
+                <div class="number-of-block-with-skills">2.</div>
+                <div class="container-for-skills"><input id="grasp" class="skill" type="radio" name="second-skill" value="1"><label for="grasp">Захват "Active"(Станит врага)</label></input></div>
+                <div class="container-for-skills"><input id="chopping-punch" class="skill" type="radio" name="second-skill" value="2"><label for="chopping-punch">Рубящий удар "Active"(Наносит 25 урона)</label></input></div>
+                <div class="container-for-skills"><input id="back-slab" class="skill" type="radio" name="second-skill" value="3"><label for="back-slab">Бэк-слеб "Active"(Умножает урон x2, но если вы не попали - то урон наносится вам, в размере 1x)</label></input></div>
+                <div class="container-for-skills"><input id="sly-punch" class="skill" type="radio" name="second-skill" value="4"><label for="sly-punch">Коварный удар "Active"(стандартный урон оружия  + забирает стамину (стоимость одной атак) у цели)</label></input></div>
+                <div class="container-for-skills"><input id="vampire" class="skill" type="radio" name="second-skill" value="5"><label for="vampire">Вампир "Active"(Ворует 15хп у врага)</label></input></div>
 
-                <div>3.</div><input id="third-skill" class="skill" type="radio" name="third-skill" value="1">Ведьмачье зрение "Active"(Позволяет увидеть точки защиты и контратаки противника)</input></br>
-                  <input id="third-skill" class="skill" type="radio" name="third-skill" value="2">Ведьмачья реакция "Active"(Позволяет парировать 2 точки)</input></br>
-                  <input id="third-skill" class="skill" type="radio" name="third-skill" value="3">Устрашение  "Active"(Наложенное на противника, запрещает ему выбрать вас как цель на протяжении одного хода)</input></br>
-                  <input id="third-skill" class="skill" type="radio" name="third-skill" value="4">Ловкач "Active"(Позволяет походить два раза подряд)</input></br>
-
-                
-                
-
-
-
-                </br>    
-                <button class="save-gladiator">Завершить</button>    
+                <div class="number-of-block-with-skills">3.</div>
+                <div class="container-for-skills"><input id="witcher-sight" class="skill" type="radio" name="third-skill" value="1"><label for="witcher-sight">Ведьмачье зрение "Active"(Позволяет увидеть точки защиты и контратаки противника + хп, стамину)</label></input></div>
+                <div class="container-for-skills"><input id="witcher-reaction" class="skill" type="radio" name="third-skill" value="2"><label for="witcher-reaction">Ведьмачья реакция "Active"(Позволяет парировать 2 точки)</label></input></div>
+                <div class="container-for-skills"><input id="fearing" class="skill" type="radio" name="third-skill" value="3"><label for="fearing">Устрашение  "Active"(Наложенное на противника, запрещает ему выбрать вас как цель на протяжении одного хода)</label></input></div>
+                <div class="container-for-skills"><input id="fast-man" class="skill" type="radio" name="third-skill" value="4"><label for="fast-man">Ловкач "Active"(Позволяет походить два раза подряд)</label></input></div>
+            </div>
             </div>
 
-                <div id="bars" class="bars">
-                    <input id="glad-health" class="glad-health" value="HP: 100"></input></br>
-                    <input id="glad-armor" class="glad-armor" value="ARMOR: 0"></input></br>
-                    <input id="glad-stamina" class="glad-stamina" value="100" readonly></input></br>
-                    <input id="shield-hp" class="shield-hp" value="40"></input></br>
 
-                        <h3>Выберите часть тела для атаки</h3>
-                        <input class="select-attack" type="radio" value="head" name="select-attack">Голова</input></br>
-                        <input class="select-attack" type="radio" value="top-chest" name="select-attack">Верхняя часть тела</input></br>
-                        <input class="select-attack" type="radio" value="bottom-chest" name="select-attack">Нижняя часть тела</input></br>
-                        <input class="select-attack" type="radio" value="left-arm" name="select-attack">Левая рука</input></br>
-                        <input class="select-attack" type="radio" value="right-arm" name="select-attack">Правая рука</input></br>
-                        <input class="select-attack" type="radio" value="left-leg" name="select-attack">Левая нога</input></br>
-                        <input class="select-attack" type="radio" value="right-leg" name="select-attack">Правая нога</input></br>
-                </div>
 
-                <div id="skill-bar" class="skill-bar"></div>
 
-                </br>
-                <button id="attack" class="attack">Атаковать</button>
-                <button id="stamina-recover" class="stamina-recover">Восстановить стамину</button>
-                <div class="counterattack"><img src="img/counterattack.png" id="counterattack" class="counterattack"/>Контратака</div></br>
-                <div class="block"><img src="img/deffence.png" id="block" class="block"/>Блок</div></br>
 
-                <div id="disbuffs" class="disbuffs">
-                    <h3>Дебаффы</h3>
-                    <input type="checkbox" id="bleeding"/>Кровотечение</br>
-                    <input type="checkbox" id="broken"/>Сломанная кость ВЫКЛ:<input type="checkbox" id="broken-off"/></br>
-                    <input type="checkbox" id="stun"/>Оглушение</br>
-                    <input type="checkbox" id="pain"/>Острая боль
-                </div>
-        </div>
+        </br>    
+        <button class="save-gladiator">Завершить</button>    
+    </div>
 
-        <script src="js/libs/jquery.min.js" type="text/javascript"></script>
-        <script src="js/app/controller/controller.js" type="text/javascript"></script>
-        <script src="js/app/model/model.js" type="text/javascript"></script>
-        <script src="js/app/view/view.js" type="text/javascript"></script>
-        <script src="js/index.js" type="text/javascript"></script>
-    </body>
+    <div id="bars" class="bars">
+        <input id="glad-health" class="glad-health" value="HP: 100"></input></br>
+        <input id="glad-armor" class="glad-armor" value="ARMOR: 0"></input></br>
+        <input id="glad-stamina" class="glad-stamina" value="100" readonly></input></br>
+        <input id="shield-hp" class="shield-hp" value="40"></input></br>
+
+        <h3>Выберите часть тела для атаки</h3>
+        <input class="select-attack" type="radio" value="head" name="select-attack" id="head"><label for="head">Голова</label></input></br>
+        <input class="select-attack" type="radio" value="top-chest" name="select-attack" id="top-chest"><label for="top-chest">Верхняя часть тела</label></input></br>
+        <input class="select-attack" type="radio" value="bottom-chest" name="select-attack" id="bottom-chest"><label for="bottom-chest">Нижняя часть тела</label></input></br>
+        <input class="select-attack" type="radio" value="left-arm" name="select-attack" id="left-arm"><label for="left-arm">Левая рука</label></input></br>
+        <input class="select-attack" type="radio" value="right-arm" name="select-attack" id="right-arm"><label for="right-arm">Правая рука</label></input></br>
+        <input class="select-attack" type="radio" value="left-leg" name="select-attack" id="left-leg"><label for="left-leg">Левая нога</label></input></br>
+        <input class="select-attack" type="radio" value="right-leg" name="select-attack" id="right-leg"><label for="right-leg">Правая нога</label></input></br>
+    </div>
+
+    <div id="skill-bar" class="skill-bar"></div>
+
+</br>
+<button id="attack" class="attack">Атаковать</button>
+<button id="stamina-recover" class="stamina-recover">Cтамина++</button>
+<div class="counterattack"><img src="img/counterattack.png" id="counterattack" class="counterattack"/>Контратака</div></br>
+<div class="block"><img src="img/deffence.png" id="block" class="block"/>Блок</div></br>
+<div class="guard-break"><img src="https://marketplace.canva.com/MACScr0FeIk/1/screen/canva-broken-shield-emblem-symbol-MACScr0FeIk.png" id="guard-break" class="guard-break"/>Гардбрейк</div></br>
+
+<div id="disbuffs" class="disbuffs">
+    <h3>Дебаффы</h3>
+    <input type="checkbox" id="bleeding"/><label for="bleeding">Кровотечение(-5хп в течении 3 ходов)</label></br></br>
+    <input type="checkbox" id="broken"/><label for="broken">Сломанная кость(-10 скорости в течении 3 ходов) <span>ВЫКЛ:</span></label><input type="checkbox" id="broken-off"/></br></br>
+    <input type="checkbox" id="stun"/><label for="stun">Оглушение(Нельзя использовать скиллы в течении 3 ходов)</label></br></br>
+    <input type="checkbox" id="pain"/><label for="pain">Острая боль(Нельзя парировать и блокировать в течении 3 ходов)</label></br></br>
+</div>
+</div>
+
+<script src="js/libs/jquery.min.js" type="text/javascript"></script>
+<script src="js/app/controller/controller.js" type="text/javascript"></script>
+<script src="js/app/model/model.js" type="text/javascript"></script>
+<script src="js/app/view/view.js" type="text/javascript"></script>
+<script src="js/index.js" type="text/javascript"></script>
+</body>
 
 </html>

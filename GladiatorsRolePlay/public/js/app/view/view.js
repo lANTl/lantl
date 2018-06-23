@@ -8,6 +8,17 @@ function gameView(){
     $("#mid-w").hide();
     $("#heavy-w").hide();
     $('.shield-hp').hide();
+    function randomInt(min, max){
+        var rand = Math.floor(Math.random() * (max - min)) + min;
+        return rand;
+    }
+
+    /*function lowStamina(stamina){
+        if(stamina < 15){
+            alert("У ВАС МАЛО СТАМИНЫ!");
+        }
+    }*/
+
 
     $('input[name="weapon"]').on('change', function(){
         var checkedWeapon = $('input[name="weapon"]:checked').val();
@@ -33,23 +44,28 @@ function gameView(){
     $('#glad-stats').on('change', function (){
         var selectedHelmet = document.getElementById("helmet").selectedIndex;
         var helmet = parseInt(document.getElementById("helmet").options[selectedHelmet].value);
+        var helmetArmor = parseInt(document.getElementById("helmet").options[selectedHelmet].dataset.armor);
 
         var selectedChest = document.getElementById("chestplate").selectedIndex;
         var chestplate = parseInt(document.getElementById("chestplate").options[selectedChest].value);
+        var chestplateArmor = parseInt(document.getElementById("chestplate").options[selectedChest].dataset.armor);
 
         var selectedArms = document.getElementById("arms").selectedIndex;
         var arms = parseInt(document.getElementById("arms").options[selectedArms].value);
+        var armsArmor = parseInt(document.getElementById("arms").options[selectedArms].dataset.armor);
 
         var selectedPants = document.getElementById("pants").selectedIndex;
         var pants = parseInt(document.getElementById("pants").options[selectedPants].value);
+        var pantsArmor = parseInt(document.getElementById("pants").options[selectedPants].dataset.armor);
 
         var selectedBoots = document.getElementById("boots").selectedIndex;
         var boots = parseInt(document.getElementById("boots").options[selectedBoots].value);
+        var bootsArmor = parseInt(document.getElementById("boots").options[selectedBoots].dataset.armor);
         
         var selectedShield = document.getElementById("shield").selectedIndex;
         var shield = parseInt(document.getElementById("shield").options[selectedShield].value);
         
-        armor = helmet + chestplate + arms + pants + boots;
+        armor = helmetArmor + chestplateArmor + armsArmor + pantsArmor + bootsArmor;
         kg = helmet + chestplate + arms + pants + boots + shield;
         defaultKg = helmet + chestplate + arms + pants + boots + shield;
 
@@ -141,7 +157,7 @@ function gameView(){
         
                 switch(selectedFirstSkill){
                     case '1':
-                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Целебные травы 'Active' (Позволяют остановить кровотечение и восстановить 20хп)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Целебные травы 'Active' (Позволяют остановить кровотечение и восстановить 30хп)</div><input type=\"radio\" id=\"used-skill\"/>");
                         break;
         
                     case '2':
@@ -185,7 +201,7 @@ function gameView(){
 
                 switch(selectedThirdSkill){
                     case '1':
-                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Ведьмачье зрение 'Active'(Позволяет увидеть хп, стамину, армор врага)</div><input type=\"radio\" id=\"used-skill\"/>");
+                        $('#skill-bar').prepend("</br><div class=\"ready-skill\">Ведьмачье зрение \"Active\"(Позволяет увидеть точки защиты и контратаки противника + хп, стамину)</div><input type=\"radio\" id=\"used-skill\"/>");
                         break;
         
                     case '2':
@@ -212,7 +228,7 @@ function gameView(){
         var shieldBar = parseInt($('#shield-hp').val());
             switch(shieldBar){
                 case 0:
-                kg -= 20;
+                kg -= 35;
                 $('#shield-hp').attr('readonly', true);
                 break;
             }
@@ -237,10 +253,7 @@ function gameView(){
 
 
     $('#attack').on('click', function(){
-        function randomInt(min, max){
-            var rand = Math.floor(Math.random() * (max - min)) + min;
-            return rand;
-        }
+        
 
         var cube = randomInt(0, 100);
     
@@ -260,100 +273,100 @@ function gameView(){
         switch(chosedPartForAttack){
             case 'head':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 3 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 3 +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube > kg && cube < choseWeapon.crit){
-                alert('Попадание. '+ choseWeapon.damage +' урона');
+                alert('Попадание. '+ choseWeapon.damage +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
 
 
             case 'top-chest':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 2 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 2 +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube > kg && cube < choseWeapon.crit){
-                alert('Попадание. '+ choseWeapon.damage +' урона');
+                alert('Попадание. '+ choseWeapon.damage +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
 
 
             case 'bottom-chest':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 2 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 2 +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube > kg && cube < choseWeapon.crit){
-                alert('Попадание. '+ choseWeapon.damage +' урона');
+                alert('Попадание. '+ choseWeapon.damage +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
 
 
             case 'left-arm':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube > kg && cube < choseWeapon.crit){
                 var floorDmg = Math.floor((choseWeapon.damage) - ((20*choseWeapon.damage)/100));
-                alert('Попадание. '+ floorDmg +' урона');
+                alert('Попадание. '+ floorDmg +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
 
 
             case 'right-arm':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона\n\nКубик: ' + cube) + '\nКилограммы: ' + kg;
             }
             else if(cube > kg && cube < choseWeapon.crit){
                 var floorDmg = Math.floor((choseWeapon.damage) - ((20*choseWeapon.damage)/100));
-                alert('Попадание. '+ floorDmg +' урона');
+                alert('Попадание. '+ floorDmg +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
 
 
             case 'left-leg':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube > kg && cube < choseWeapon.crit){
                 var floorDmg = Math.floor((choseWeapon.damage) - ((25*choseWeapon.damage)/100));
-                alert('Попадание. '+ floorDmg +' урона');
+                alert('Попадание. '+ floorDmg +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
 
 
             case 'right-leg':
             if(cube > kg && cube > choseWeapon.crit){
-                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона');
+                alert('Попадание. КРИТ! '+ choseWeapon.damage * 1.5 +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube > kg && cube < choseWeapon.crit){
                 var floorDmg = Math.floor((choseWeapon.damage) - ((25*choseWeapon.damage)/100));
-                alert('Попадание. '+ floorDmg +' урона');
+                alert('Попадание. '+ floorDmg +' урона\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             else if(cube < kg){
-                alert('Промах');
+                alert('Промах\n\nКубик: ' + cube + '\nКилограммы: ' + kg);
             }
             break;
         }
         }
-        
+        /*lowStamina(staminaLeft);*/
 
         
         
@@ -375,10 +388,11 @@ function gameView(){
 
             $('#counterattack').on('click', function(){
                 var staminaNow = parseInt($('#glad-stamina').val());
-                if(staminaNow >= 25){
-                    var counterA = staminaNow - 25;
+                if(staminaNow >= 20){
+                    var counterA = staminaNow - 20;
                     $('#glad-stamina').val(counterA);
-                    alert('Контратака готова!')
+                    alert('Контратака готова!');
+                    /*lowStamina(counterA);*/
                 } else{
                     alert('Недостаточно стамины!')
                 }
@@ -388,13 +402,30 @@ function gameView(){
 
             $('#block').on('click', function(){
                 var staminaNow = parseInt($('#glad-stamina').val());
-                if(staminaNow >= 25){
-                    var block = staminaNow - 25;
+                if(staminaNow >= 20){
+                    var block = staminaNow - 20;
                     $('#glad-stamina').val(block);
-                    alert('Блок готов!')
+                    alert('Блок готов!');
+                    /*lowStamina(block);*/
                 } else{
                     alert('Недостаточно стамины!')
                 }
             });
+
+
+
+            $('#guard-break').on('click', function(){
+                var staminaNow = parseInt($('#glad-stamina').val());
+                if(staminaNow >= 15){
+                    var guardbreak = staminaNow - 15;
+                    $('#glad-stamina').val(guardbreak);
+                    var chanceGuardBreak = randomInt(1, 100) + Math.floor(kg/2);
+                    alert('Пробитие защиты ' + chanceGuardBreak);
+                    /*lowStamina(guardbreak);*/
+                } else{
+                    alert('Недостаточно стамины!');
+                }
+            });
+            
 
 }

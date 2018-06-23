@@ -2,94 +2,88 @@
 {
     width: 100%;
     height: 100%;
-    font-size: 20px;
-}
-
-.save-gladiator
-{
+    font-size: 45px;
     background-color: black;
     color: white;
-    padding: 15px;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    padding: 0px 10px 0 10px;
+    box-sizing: border-box;
+    border: 2px solid yellow;
 }
 
-.attack
-{
-    background-color: black;
-    color: white;
+.save-gladiator, .attack, .stamina-recover {
+    background-color: white;    
     padding: 15px;
+    width: 300px;
     margin-top: 2%;
     margin-bottom: 2%;
-}
+    font-size: 45px;
+} 
 
 .stamina-recover
 {
-    background-color: black;
-    color: white;
-    padding: 15px;
-    margin-top: 2%;
-    margin-bottom: 2%;
     margin-left: 10px;
+}
+
+.counterattack, .block{
+    height: 64px;
+    width: 64px;
+    margin-left: 5px;
 }
 
 .counterattack
 {
-    height: 48px;
-    width: 48px;
-    margin-bottom: 2%;
-    margin-left: 5px;
+    margin-top: 4%;
+    margin-bottom: 10%;
 }
 
 .block
 {
-    height: 48px;
-    width: 48px;
-    margin-bottom: 5%;
-    margin-left: 5px; 
+    margin-bottom: 4%; 
+}
+
+.guard-break
+{
+    height: 100px;
+    width: 100px; 
+    margin-top: 4%;
 }
 
 select {
     background-color: #19c8d1;
+    width: 100%;
+    height: 40px;
+}
+
+.skills {
+    width: 100%;
+}
+
+.glad-health, .glad-armor, .glad-stamina, .shield-hp {
+    height: 60px;
+    width: 70%;
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+    font-size: 45px;
 }
 
 .glad-health
 {
-    height: 30px;
-    width: 35%;
     background-color: #d33935;
-    color: white;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
 }
 
 .glad-armor
 {
-    height: 30px;
-    width: 35%;
     background-color: #3c73f2;
-    color: white; 
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
 }
 
 .glad-stamina
 {
-    height: 30px;
-    width: 35%;
     background-color: #d49d20;
-    color: white; 
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
 }
 
 .shield-hp{
-    height: 30px;
-    width: 35%;
     background-color: #1d944e;
-    color: white;  
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
 }
 
 .select-attack
@@ -100,8 +94,18 @@ select {
 
 .skill
 {
+    margin-top: 0;
     margin-left: 10px;
-    margin-top: 0.5%;
+}
+
+.container-for-skills {
+    margin-bottom: 50px;
+}
+
+.number-of-block-with-skills {
+    margin-top: 70px;
+    color: #00daff;
+    font-weight: bold;
 }
 
 .ready-skill
@@ -109,4 +113,43 @@ select {
     color: goldenrod;
 }
 
+.disbuffs {
+    margin-top: 15%;
+}
+
+.disbuffs span {
+    color: #00daff;
+}
+
+[type="radio"], [type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-top: 0px;
+    margin-right: 10px; 
+    margin-bottom: 20px; /*distance between radbuttons*/
+}
+
+input[type=checkbox]:checked + label,
+input[type=radio]:checked + label {
+  color: #00ff4c;
+}
+
+
+/*.checkbox input[type=checkbox]:checked + label:after {
+    outline:1px solid #939598;
+    border:2px solid #fff;
+    width:10px;
+    height:10px;
+    background-color:#63849F;
+}*/
+
+/*[type="checkbox"] {
+
+}*/
+
+/*@media screen and (max-width: 650px) {
+ html {
+      
+ }*/
 

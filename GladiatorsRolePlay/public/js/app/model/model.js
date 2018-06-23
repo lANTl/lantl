@@ -1,27 +1,27 @@
 //ЛЕГКОЕ ОРУЖИЕ
 
 var smallSword = {
-    'damage' : 10,
+    'damage' : 12,
     'crit' : 80,
     'weight' : 10
 };
 var dagger = {
-    'damage' : 13,
+    'damage' : 15,
     'crit' : 84,
     'weight' : 12
 };
 var tomahawk = {
-    'damage' : 15,
+    'damage' : 17,
     'crit' : 86,
     'weight' : 14 
 };
 var stiletto = {
-    'damage' : 17,
+    'damage' : 19,
     'crit' : 88,
     'weight' : 16 
 };
 var nunchucks = {
-    'damage' : 19,
+    'damage' : 21,
     'crit' : 90,
     'weight' : 18 
 };
